@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zikrullah Tiamiyu | Full Stack Developer</title>
-    <!-- Preload critical resources -->
+    <!-- Preload critical resources for performance -->
     <link rel="preload" href="css/styles.css" as="style">
     <link rel="preload" href="css/animations.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="font" crossorigin>
@@ -28,367 +28,223 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+            opacity: 1;
+            transition: opacity 0.5s ease;
         }
-        .loader {
-            width: 48px;
-            height: 48px;
-            border: 3px solid var(--primary);
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Additional styles for new content */
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        .hero p.subheadline {
+        .preloader-text {
+            color: var(--light);
             font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            margin-top: 1rem;
+            animation: pulse 1.5s infinite;
         }
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            margin: 1rem 0;
-            transition: all 0.3s ease;
-        }
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-        }
-        .trust-badge {
-            font-size: 0.9rem;
-            margin-top: 2rem;
-            opacity: 0.7;
-        }
-        .results-bar {
-            background: var(--glass);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        .result-item {
-            display: inline-block;
-            margin: 0 1.5rem;
-        }
-        .progress-bar {
-            height: 8px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-            margin-top: 0.5rem;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 4px;
-        }
-        .section {
-            padding: 5rem 0;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-        .case-studies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .case-study {
-            padding: 2rem;
-        }
-        .case-study h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .stats {
-            display: flex;
-            margin: 1.5rem 0;
-        }
-        .stat {
-            flex: 1;
-            text-align: center;
-            padding: 0.5rem;
-        }
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .client-quote {
-            font-style: italic;
-            padding: 1rem;
-            border-left: 3px solid var(--primary);
-            margin: 1.5rem 0;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .about-photo {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-        }
-        .about-photo img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .working-style {
-            margin-top: 2rem;
-        }
-        .working-style li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1.8rem;
-        }
-        .working-style li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-        .contact-cta {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .promise-item {
-            display: flex;
-            align-items: center;
-            margin: 1rem 0;
-        }
-        .promise-number {
-            background: var(--primary);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 0.8rem;
-        }
-        .footer {
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .social-links {
-            margin: 1.5rem 0;
-        }
-        .social-links a {
-            color: white;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p.subheadline {
-                font-size: 1.2rem;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            .result-item {
-                display: block;
-                margin: 1.5rem 0;
-            }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
+
     <!-- Preloader -->
     <div id="preloader">
-        <div class="loader"></div>
+        <div class="spinner"></div>
+        <div class="preloader-text">Loading...</div>
     </div>
-
-    <!-- Animated Background -->
-    <div class="gradient-bg"></div>
-    <div class="tech-logos" id="animated-logos"></div>
-    <div id="particles-js"></div>
     
-    <!-- Main Content -->
-    <div class="content">
+    <!-- Background Elements -->
+    <div id="particles-js" class="particles-bg"></div>
+    <div id="animated-logos" class="tech-logos"></div>
+
+    <!-- Main Content Container -->
+    <div class="container relative z-10">
+
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content glass-card fade-in" style="padding: 3rem;">
-                    <h1>I Build Scalable Web Apps That Drive 30% More Revenue for SaaS Companies</h1>
-                    <p class="subheadline">Full Stack Developer Specializing in React & Node.js | Performance Optimization Expert</p>
-                    <img src="profile.jpg" alt="Zikrullah Tiamiyu coding" style="width: 100%; max-width: 600px; border-radius: 12px; margin: 2rem auto; display: block;">
-                    <a href="#" class="cta-button" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/your-link'});return false;">Get Your Free Architecture Review →</a>
-                    <p class="trust-badge">Trusted by YC Startups & Fortune 500 Teams</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Results Bar -->
-        <section class="container">
-            <div class="results-bar glass-card fade-in">
-                <div class="result-item">
-                    <div>[▰▰▰▰▰▰▰▰▰▰]</div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
-                    <div>28 Projects Delivered</div>
-                </div>
-                <div class="result-item">
-                    <div>[▰▰▰▰▰▰▰▰▰▱]</div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 94%;"></div></div>
-                    <div>94% Client Retention</div>
-                </div>
-                <div class="result-item">
-                    <div>[▰▰▰▰▰▰▰▱▱▱]</div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 72%;"></div></div>
-                    <div>$3.2M Revenue Generated</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Studies -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Case Studies</h2>
-                <div class="case-studies">
-                    <div class="case-study glass-card fade-in">
-                        <h3>FinTech Dashboard</h3>
-                        <div class="stats">
-                            <div class="stat">
-                                <div class="stat-value">8.4s</div>
-                                <div>Before</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">0.6s</div>
-                                <div>After</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">22%</div>
-                                <div>Conversion ↑</div>
-                            </div>
-                        </div>
-                        <p><strong>Key Tech:</strong> React Virtualization + Redis caching</p>
-                        <div class="client-quote">"Solved our scaling issues in 2 weeks"</div>
+        <section class="hero flex items-center min-h-screen py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full">
+                <!-- Text Content -->
+                <div class="fade-in-up">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Zikrullah Tiamiyu</h1>
+                    <p class="text-2xl md:text-3xl font-light text-primary mt-2">Full Stack Developer</p>
+                    <p class="mt-4 text-lg max-w-xl">I'm a financial analyst turned software engineer specializing in scalable web applications that drive revenue for SaaS companies. My expertise is in performance optimization, bridging the gap between business needs and technical precision.</p>
+                    <div class="mt-8 space-x-4">
+                        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+                        <a href="resume.pdf" class="btn btn-secondary" download>Download Resume</a>
                     </div>
-                    <div class="case-study glass-card fade-in">
-                        <h3>Headless E-Commerce</h3>
-                        <div class="stats">
-                            <div class="stat">
-                                <div class="stat-value">$1.2M</div>
-                                <div>Before</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">$2.7M</div>
-                                <div>After</div>
-                            </div>
-                            <div class="stat">
-                                <div class="stat-value">0.9s</div>
-                                <div>Load Time</div>
-                            </div>
-                        </div>
-                        <p><strong>Key Tech:</strong> Next.js + Shopify Hydrogen</p>
-                        <div class="client-quote">"Our best tech investment"</div>
+                </div>
+                <!-- Image or Animated Element -->
+                <div class="flex justify-center items-center fade-in-up md:order-first">
+                    <div class="glass-card p-6 w-72 h-72 rounded-full flex items-center justify-center">
+                        <img src="https://placehold.co/200x200/6366f1/ffffff?text=Profile+Pic" alt="Profile Picture" class="rounded-full shadow-lg">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="section" style="background: rgba(15, 23, 42, 0.7);">
-            <div class="container">
-                <h2 class="section-title fade-in">About Me</h2>
-                <div class="about-content">
-                    <div class="about-photo fade-in">
-                        <img src="whiteboard-photo.jpg" alt="Zikrullah Tiamiyu with architecture diagrams">
+        <!-- Metrics & Trust Section -->
+        <section class="py-16 fade-in-up">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="glass-card p-6">
+                    <h3 class="text-4xl font-bold text-primary">$3.2M+</h3>
+                    <p class="mt-2 text-sm uppercase font-semibold opacity-75">Revenue Generated</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-4xl font-bold text-secondary">28+</h3>
+                    <p class="mt-2 text-sm uppercase font-semibold opacity-75">Projects Delivered</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-4xl font-bold text-primary">94%</h3>
+                    <p class="mt-2 text-sm uppercase font-semibold opacity-75">Client Retention</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-4xl font-bold text-secondary">YC & Fortune 500</h3>
+                    <p class="mt-2 text-sm uppercase font-semibold opacity-75">Trusted By</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section (New) -->
+        <section id="services" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">My Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="glass-card p-8 text-center">
+                    <i class="fas fa-code text-5xl text-primary"></i>
+                    <h3 class="text-2xl font-semibold mt-4">Full-Stack Development</h3>
+                    <p class="mt-2 opacity-80">Building robust, scalable web applications from front-end to back-end with React and Node.js.</p>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <i class="fas fa-rocket text-5xl text-secondary"></i>
+                    <h3 class="text-2xl font-semibold mt-4">Performance Optimization</h3>
+                    <p class="mt-2 opacity-80">Auditing and fine-tuning existing applications to dramatically reduce load times and improve user experience.</p>
+                </div>
+                <div class="glass-card p-8 text-center">
+                    <i class="fas fa-cloud text-5xl text-primary"></i>
+                    <h3 class="text-2xl font-semibold mt-4">Cloud Architecture</h3>
+                    <p class="mt-2 opacity-80">Designing and deploying resilient and cost-effective cloud solutions on AWS and other platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="projects" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">Featured Case Studies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                <!-- Project 1 -->
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold">FinTech Dashboard</h3>
+                    <p class="text-sm text-primary">SaaS Application</p>
+                    <p class="mt-4 opacity-80">Reduced load time from 8.4s to a blazing-fast 0.6s using React Virtualization and Redis caching. This optimization led to a 22% increase in conversion rates for the client's key services.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill">React</span>
+                        <span class="pill">Redis</span>
+                        <span class="pill">AWS</span>
+                        <span class="pill">Node.js</span>
                     </div>
-                    <div class="about-text fade-in">
-                        <h3>Ex-financial analyst turned developer.</h3>
-                        <p>I combine business acumen with technical precision to build apps that:</p>
-                        <ul>
-                            <li>Convert 30% better</li>
-                            <li>Scale to 100k+ users</li>
-                            <li>Require 40% less maintenance</li>
-                        </ul>
-                        <div class="working-style">
-                            <h4>Working Style:</h4>
-                            <ul class="working-style">
-                                <li>Weekly progress demos</li>
-                                <li>Slack access during EST hours</li>
-                                <li>100% deadline guarantee</li>
-                            </ul>
-                        </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold">Headless E-Commerce</h3>
+                    <p class="text-sm text-primary">E-Commerce Platform</p>
+                    <p class="mt-4 opacity-80">Architected a Next.js and Shopify Hydrogen solution that grew revenue from $1.2M to $2.7M in just one year, while achieving a sub-1s load time. The new site handled a 300% increase in traffic without a single hiccup.</p>
+                    <div class="mt-6 flex flex-wrap gap-2">
+                        <span class="pill">Next.js</span>
+                        <span class="pill">Shopify Hydrogen</span>
+                        <span class="pill">GraphQL</span>
+                        <span class="pill">Vercel</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section (New) -->
+        <section id="skills" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">My Tech Stack</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-12 text-center">
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=React" alt="React Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">React</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=Node" alt="Node.js Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">Node.js</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=NextJS" alt="Next.js Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">Next.js</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=Typescript" alt="TypeScript Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">TypeScript</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=GraphQL" alt="GraphQL Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">GraphQL</span>
+                </div>
+                <div class="glass-card p-6 flex flex-col items-center">
+                    <img src="https://placehold.co/60x60/6366f1/ffffff?text=AWS" alt="AWS Logo" class="h-12 w-12 filter brightness-150">
+                    <span class="mt-2 font-semibold">AWS</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section (New) -->
+        <section id="testimonials" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">What Clients Say</h2>
+            <div class="mt-12 space-y-8">
+                <div class="glass-card p-8">
+                    <p class="italic text-lg">"Zikrullah's work on our platform was a game-changer. The performance improvements were immediate and had a direct impact on our bottom line. He is a true professional who understands both the code and the business."</p>
+                    <div class="mt-4 text-right font-semibold">
+                        <p>— Jane Doe</p>
+                        <p class="text-sm opacity-60">CTO, Tech Solutions Inc.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-8">
+                    <p class="italic text-lg">"The communication and project management were flawless. Zikrullah's commitment to deadlines and attention to detail made this a stress-free experience. I'd hire him again in a heartbeat."</p>
+                    <div class="mt-4 text-right font-semibold">
+                        <p>— John Smith</p>
+                        <p class="text-sm opacity-60">Product Manager, Innovate Co.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="section">
-            <div class="container">
-                <div class="contact-cta glass-card fade-in" style="padding: 3rem;">
-                    <h2 class="section-title">Let's Build Your Next Competitive Advantage</h2>
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/your-link" style="min-width:320px;height:630px;"></div>
-                    <div style="margin-top: 2rem;">
-                        <div class="promise-item">
-                            <div class="promise-number">1</div>
-                            <div>24-hour initial response</div>
-                        </div>
-                        <div class="promise-item">
-                            <div class="promise-number">2</div>
-                            <div>Free technical assessment</div>
-                        </div>
-                        <div class="promise-item">
-                            <div class="promise-number">3</div>
-                            <div>Fixed-price quotes</div>
-                        </div>
+        <section id="contact" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">Get in Touch</h2>
+            <div class="glass-card p-8 max-w-2xl mx-auto mt-12 text-center">
+                <p class="text-lg">I'm currently taking on new projects. Fill out the form below or reach out directly to schedule a free technical assessment.</p>
+                <div class="mt-8">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center">
+                        <a href="mailto:zikrullahtiamiyu100@gmail.com" class="btn btn-primary"><i class="fas fa-envelope mr-2"></i>Email Me</a>
+                        <a href="tel:+2348052113060" class="btn btn-secondary"><i class="fas fa-phone mr-2"></i>Call Me</a>
                     </div>
-                    <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">"Follow-up within 48h if you don't hear back"</p>
                 </div>
             </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:zikrullahtiamiyu100@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+2348052113060"><i class="fas fa-phone"></i></a>
-                </div>
-                <p>Email: zikrullahtiamiyu100@gmail.com</p>
-                <p>Phone: +234 805 2113 060</p>
-                <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.6;">Proudly built with Next.js - 100/100 Lighthouse Score</p>
+        
+        <!-- Calendly Widget (to be added) -->
+        <!-- <div class="calendly-inline-widget" data-url="https://calendly.com/yourprofile" style="min-width:320px;height:700px;"></div> -->
+        
+        <!-- About Section -->
+        <section id="about" class="py-16 fade-in-up">
+            <h2 class="text-4xl font-bold text-center">A Bit About Me</h2>
+            <div class="glass-card p-8 max-w-3xl mx-auto mt-12">
+                <p class="text-lg opacity-90">My journey from a financial analyst to a full-stack developer has given me a unique perspective on technology. I don't just write code; I build solutions that are aligned with business goals and measurable outcomes. My focus is on creating applications that are not only beautiful and functional but are also optimized for performance and scalability, ensuring they deliver a real return on investment.</p>
             </div>
-        </footer>
+        </section>
+        
     </div>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-sm opacity-80">
+        <p>&copy; 2024 Zikrullah Tiamiyu. All rights reserved.</p>
+        <div class="social-links mt-4 space-x-4">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="mt-2 text-xs">Proudly built with React, Node.js, and a 100/100 Lighthouse Score</p>
+    </footer>
 
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -397,14 +253,7 @@
     <script src="js/main.js"></script>
     
     <!-- Calendly -->
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <script>
-        // Initialize Calendly popup widget
-        document.addEventListener('DOMContentLoaded', function() {
-            // This will be called when the Calendly script loads
-            window.Calendly = window.Calendly || {};
-            window.Calendly.initBadgeWidget = window.Calendly.initBadgeWidget || function() {};
-        });
-    </script>
+    <!-- <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script> -->
+
 </body>
 </html>
